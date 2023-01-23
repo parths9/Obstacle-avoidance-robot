@@ -8,6 +8,8 @@
 #define RMB 26   //D26
 #define LMF 27   //D27
 #define LMB 14   //D14
+#define enA 32   //D32
+#define enB 35   //D35
 
 #define TrigPin 35 //D14
 #define EchoPin 12 //D12
@@ -43,13 +45,13 @@ distance = getDistance();
   delay(100);
   
   Backward();
-  delay(300);
+  delay(500);
    
   lookRight();
-  delay(200);
+  delay(2000);
   
   lookLeft();
-  delay(200);
+  delay(2000);
 
    if(distanceRight < distanceLeft)
     {
@@ -109,7 +111,9 @@ void Backward()
   digitalWrite(RMF,LOW);
   digitalWrite(RMB,HIGH);                       
   digitalWrite(LMF,LOW);
-  digitalWrite(LMB,HIGH); 
+  digitalWrite(LMB,HIGH);
+  analogwrite(enA, 180);
+  analogwrite(enB, 180);
 }
 
 void Forward() 
@@ -119,6 +123,8 @@ void Forward()
   digitalWrite(RMB,LOW);                         
   digitalWrite(LMF,HIGH);
   digitalWrite(LMB,LOW);
+  analogwrite(enA, 180);
+  analogwrite(enB, 180);
 }  
 
 void TurnRight() 
@@ -129,6 +135,8 @@ void TurnRight()
   digitalWrite(RMB, HIGH);
   digitalWrite(LMF, HIGH);
   digitalWrite(LMB, LOW);
+  analogwrite(enA, 180);
+  analogwrite(enB, 180);
 } 
  
 void TurnLeft() 
@@ -138,7 +146,9 @@ void TurnLeft()
  digitalWrite(RMF, HIGH);
  digitalWrite(RMB, LOW);
  digitalWrite(LMF, LOW);
- digitalWrite(LMB, HIGH); 
+ digitalWrite(LMB, HIGH);
+ analogwrite(enA, 180);
+ analogwrite(enB, 180);
 } 
  
 void Stop()
@@ -146,7 +156,9 @@ void Stop()
  digitalWrite(RMF, LOW);
  digitalWrite(RMB, LOW);
  digitalWrite(LMF, LOW);
- digitalWrite(LMB, LOW); 
+ digitalWrite(LMB, LOW);
+ analogwrite(enA, 0);
+ analogwrite(enB, 0);
 }
 
 
